@@ -10,9 +10,9 @@ export default ComposedComponent => {
     }
 
     render() {
-      return ({this.props.authenticated ? (
+      return (this.props.authenticated ? (
             <ComposedComponent />
-          ) : null});
+          ) : null);
     }
   }
 
