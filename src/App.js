@@ -6,7 +6,7 @@ import PicturePage from './components/PicturePage';
 import VisitorLandingPage from './components/VisitorLandingPage';
 import BillingPage from './components/BillingPage';
 import SettingsPage from './components/SettingsPage';
-import RequireAuth from './components/auth/RequireAuth';
+import RequireAuth from './components/Auth/RequireAuth';
 import Notfound from './components/NotFound';
 import './index.css';
 class App extends Component {
