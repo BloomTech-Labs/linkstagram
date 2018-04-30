@@ -5,8 +5,8 @@ export const USER_AUTHENTICATED = 'USER_AUTHENTICATED';
 export const AUTHENTICATION_ERROR = 'AUTHENTICATION_ERROR';
 export const authError = error => {
     return {
-      type: AUTHENTICATION_ERROR,
-      payload: error
+        type: AUTHENTICATION_ERROR,
+        payload: error
     };
 };
 
@@ -16,9 +16,9 @@ export const signin = (privateKey, history) => {
 
 export const signout = () => {
     return dispatch => {
-      dispatch({
+        dispatch({
             type: USER_UNAUTHENTICATED,
             payload: {}
-          });
+            });
     };
 };
