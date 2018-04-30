@@ -24,7 +24,7 @@ class PicturePage extends Component {
       });
     }
     render(){
-      const { image, link, title } = this.state;
+      // const { image, link, title } = this.state;
       return (
               <Grid fluid className="grid-figure">
               <nav class="navbar-text navbar-left">
@@ -38,7 +38,7 @@ class PicturePage extends Component {
               </nav>
                <Row>
                   <Col className='pictureName' xs={4} md={8} mdOffset={5} style={{ 'textAlign': 'center', 'width': '1145px'}}>
-                      <h1>{title}</h1>
+                      <h1>{this.state.title}</h1>
                   </Col>
                 </Row>
                   <br/>
@@ -48,14 +48,14 @@ class PicturePage extends Component {
                         <SideBar/> 
                       </Col>
                       <Col className="image" xs={12} md={3} >
-                        <img src={image} alt={image.title} />
+                        <img src={this.state.image} alt={image.title} />
                       </Col>
                       <Col className="affiliateLink" md={8} style={{ 'paddingTop': '20px'}}>
-                       <Link to={link}> </Link>
+                       <Link to={this.state.link}> </Link>
                       </Col>
                     </Row> 
                     <Row className="submit">
-                      <Button outline color="primary" className="float-right" onClick={()=>this.handleClick()}>Submit</Button>
+                      <Button outline color="primary" className="float-right" onClick={()=>this.handleClick.bind(this)}>Submit</Button>
                     </Row>
                   </div>
               </Grid>
