@@ -21,7 +21,7 @@
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.2.0"
   },
-  "homepage": "https://frozen-meadow-83031.herokuapp.com/",
+  "homepage": "https://linkstagram.herokuapp.com/",
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
