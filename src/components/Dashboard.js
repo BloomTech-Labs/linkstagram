@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-
+import Header from './Header';
 class Dashboard extends Component {
     render(){
       return(
-        <div >
-        Settings
-        </div>
+        <div ><Header/>Dashboard</div>
         );
     }
 }
