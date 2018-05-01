@@ -1,10 +1,23 @@
 import React, { Component } from 'react';
+import { withRouter, Link } from 'react-router-dom';
+import { Parallax } from 'react-parallax';
+import { reduxForm, Field } from 'redux-form';
+import { signin } from '../../actions';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 
 class SignIn extends Component {
-    render(){
-      return(
+    handleFormSubmit({ email, password }) {
+      this.props.signin(email, password, this.props.history);
+    }
+
+    renderAlert() {
+      if (!this.props.error) return null;
+      return <h3>{this.props.error}</h3>;
+    }
+    render() {
+      const { handleSubmit } = this.props;
+  
+      return (
         <div className="modal fade" id="signInModal" tabIndex="-1" role="dialog" aria-labelledby="signInModalLabel" aria-hidden="true">
             <div className="mt-5 pt-5">
                 <div className="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -16,8 +29,17 @@ class SignIn extends Component {
                             </button>
                         </div>
                         <div className="modal-body">
-                            <form>
-                                /* Add Form Here */
+                            <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+                            {this.renderAlert()}
+                            <fieldset>
+                                <label>Email:</label>
+                                <Field name="email" component="input" type="text" />
+                            </fieldset>
+                            <fieldset>
+                                <label>Password:</label>
+                                <Field name="password" component="input" type="password" />
+                            </fieldset>
+                            <button action="submit">Sign In</button>
                             </form>
                         </div>
                     </div>
@@ -33,14 +55,21 @@ class SignIn extends Component {
                 </div>
             </div>
         </div>
-        );
+      );
     }
-}
-
-const mapStateToProps = state => {
-  return {
-    authenticated: state.auth.authenticated
+  }
+  const mapStateToProps = state => {
+    return {
+      error: state.auth.error,
+      authenticated: state.auth.authenticated
+    };
   };
-};
+  SignIn = connect(mapStateToProps, { signin })(SignIn);
 
-export default withRouter(connect(mapStateToProps)(SignIn));
+export default reduxForm({
+  form: 'signin',
+  fields: ['email', 'password']
+})(SignIn);
+
+ 
+        

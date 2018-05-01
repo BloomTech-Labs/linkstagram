@@ -1,8 +1,15 @@
 import axios from 'axios';
+
+axios.defaults.withCredentials = true;
+const ROOT_URL = 'http://localhost:3000';
+
+
+export const USER_REGISTERED = 'USER_REGISTERED';
 export const CHECK_IF_AUTHENTICATED = 'CHECK_IF_AUTHENTICATED';
 export const USER_UNAUTHENTICATED = 'USER_UNAUTHENTICATED';
 export const USER_AUTHENTICATED = 'USER_AUTHENTICATED';
 export const AUTHENTICATION_ERROR = 'AUTHENTICATION_ERROR';
+
 export const authError = error => {
     return {
       type: AUTHENTICATION_ERROR,
@@ -10,15 +17,54 @@ export const authError = error => {
     };
 };
 
-export const signin = (privateKey, history) => {
-    return dispatch => { dispatch(authError('Failed to Sign In.')); };      
-};
-
-export const signout = () => {
+export const register = (username, password, confirmPassword, history) => {
     return dispatch => {
-      dispatch({
-            type: USER_UNAUTHENTICATED,
-            payload: {}
+      if (password !== confirmPassword) {
+        dispatch(authError('Passwords do not match'));
+        return;
+      }
+      axios
+        .post(`${ROOT_URL}/users`, { username, password })
+        .then(() => {
+          dispatch({
+            type: USER_REGISTERED
           });
+          history.push('/signin');
+        })
+        .catch(() => {
+          dispatch(authError('Failed to register user'));
+        });
     };
-};
+  };
+  
+  export const signin = (username, password, history) => {
+    return dispatch => {
+      axios
+        .post(`${ROOT_URL}/login`, { username, password })
+        .then(() => {
+          dispatch({
+            type: USER_AUTHENTICATED
+          });
+          history.push('/users');
+        })
+        .catch(() => {
+          dispatch(authError('Incorrect email/password combo'));
+        });
+    };
+  };
+  
+  export const signout = () => {
+    return dispatch => {
+      axios
+        .post(`${ROOT_URL}/logout`)
+        .then(() => {
+          dispatch({
+            type: USER_UNAUTHENTICATED
+          });
+        })
+        .catch(() => {
+          dispatch(authError('Failed to log you out'));
+        });
+    };
+  };
+
