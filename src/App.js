@@ -5,7 +5,6 @@ import Dashboard from './components/Dashboard';
 import PicturePage from './components/PicturePage';
 import VisitorLandingPage from './components/VisitorLandingPage';
 import BillingPage from './components/BillingPage';
-
 import Notfound from './components/NotFound';
 import RequireAuth from './components/auth/RequireAuth';
 import './index.css';
@@ -17,7 +16,7 @@ class App extends Component {
           <Route path="/" component={DefaultPage} exact />
           <Route path="/Dashboard" component={RequireAuth(Dashboard)} exact />
           <Route path="/Pictures" component={RequireAuth(PicturePage)} exact />
-          <Route path="/:user" component={VisitorLandingPage} exact />
+          <Route path="/User/:user" component={VisitorLandingPage} exact />
           <Route path="/Billing" component={RequireAuth(BillingPage)} exact />
           <Route component={Notfound} />
         </Switch>
