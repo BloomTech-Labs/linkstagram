@@ -40,7 +40,7 @@ export const register = (username, password, confirmPassword, history) => {
   export const signin = (username, password, history) => {
     return dispatch => {
       axios
-        .post(`${ROOT_URL}/login`, { username, password })
+        .post(`https://api.instagram.com/oauth/authorize/`, {client_id:CLIENT-ID, redirect_uri:'https://linkstagram.herokuapp.com/', response_type:code })
         .then(() => {
           dispatch({
             type: USER_AUTHENTICATED

@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import { Parallax } from 'react-parallax';
-import SignIn from './modals/SignIn';
+import { UncontrolledCarousel } from 'reactstrap';
+
 import Header from './Header';
 
 class DefaultPage extends Component {
-    render() {
-      return (
-        <div> 
+  render() {
+    return (
+      <div> 
           <Header/>
-          <SignIn/>
+          {this.props.location}
           <h1> LINKSTAGRAM </h1>
+          <Link to="/Billing">BUY NOW </Link>
         </div>
       );
     //TODO
-    //ADD BUTTON That links to sign in page
+    
     //ADD carousel- of???
-    //ADD button that links to billing page
+    
     }
   }
   export default withRouter(DefaultPage);

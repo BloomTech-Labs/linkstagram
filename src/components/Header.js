@@ -6,7 +6,7 @@ class Header extends Component {
     render(){
       return(
         <div >
-        Header
+        <a href='https://api.instagram.com/oauth/authorize/?client_id=b9ff132273934310bebf3aecc6e77643&redirect_uri=https://linkstagram.herokuapp.com/&response_type=token'>Sign In</a>
         </div>
         );
     }
