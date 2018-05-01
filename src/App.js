@@ -14,11 +14,11 @@ class App extends Component {
       <Router >
         <Switch>
           <Route path="/" component={DefaultPage} exact />
-          <Route path="/Dashboard" component={Dashboard} exact />
-          <Route path="/Pictures" component={PicturePage} exact />
+          <Route path="/Dashboard" component={RequireAuth(Dashboard)} exact />
+          <Route path="/Pictures" component={RequireAuth(PicturePage)} exact />
           <Route path="/:user" component={VisitorLandingPage} exact />
-          <Route path="/Billing" component={BillingPage} exact />
-          <Route path="/Settings" component={SettingsPage} exact />
+          <Route path="/Billing" component={RequireAuth(BillingPage)} exact />
+          <Route path="/Settings" component={RequireAuth(SettingsPage)} exact />
           <Route component={Notfound} />
         </Switch>
       </Router>
