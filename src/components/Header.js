@@ -11,18 +11,12 @@ import {
   } from 'reactstrap';
 
 class Header extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        isOpen: false,
-      };
-      this.toggle = this.toggle.bind(this);
-    }
-
-    toggle() {
-      this.setState({
-        isOpen: !this.state.isOpen
-      });
+    render(){
+      return(
+        <div >
+        <a href='https://api.instagram.com/oauth/authorize/?client_id=b9ff132273934310bebf3aecc6e77643&redirect_uri=https://linkstagram.herokuapp.com/&response_type=token'>Sign In</a>
+        </div>
+        );
     }
     
     getLinks() {
