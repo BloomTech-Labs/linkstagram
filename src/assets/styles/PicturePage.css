@@ -1,0 +1,32 @@
+.affiliateLink {
+    align-self: flex-end;
+    border: 1px solid;
+    flex-direction: row;
+    margin-left: 20px;
+    padding-left: 20px;
+};
+.image {
+    border: 2px solid;
+    flex-direction: column;
+    height: 130px;
+    margin-left: 10px;
+    margin-top: 65px;
+    width: 150px;
+};
+.pictureName {
+    text-align: center;
+    min-width: 600px;
+    height: 30px;
+};
+.sidebar {
+    border: 5px solid;
+};
+.titleBar {
+    align-self: flex-start;
+    border: 2px solid;
+    margin-bottom: 10px;
+};
+/* .floatRight {
+    
+} */
+
