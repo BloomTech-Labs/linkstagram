@@ -27,35 +27,64 @@ class PicturePage extends Component {
       const { image, link, title } = this.state;
       return (
               <Grid fluid className="grid-figure">
-                <nav class="navbar-text navbar-left" style={{'width': '620px'}}>
+               <Row>
                   <ol class="breadcrumb">
-                    <li><a href="#Home">Home </a></li> 
+                    <li><a href="#Home">Home > </a></li> 
                     <li href="active">Picture Name</li>
                   </ol>
                   <p className="navbar-text nav-right">
                     <a href="#SignOut" className="navbar-link">SignOut</a>
                   </p>
-                </nav>
-                <Row>
-                  <Col className='pictureName' xs={13} md={3}  style={{ 'textAlign': 'center', 'min-width': '550px', 'height': '30px'}}>
-                      <h1 style={{'border': '2px solid' , 'marginBottom':'10px'}}>title{title}</h1>                    
-                  </Col>       
-                </Row>
+                  </Row>
+                
                 <br/>
                 <div style={{'width': '1000px'}}>
                   <Row >
-                    <Col className="Sidebar"xs={9}  md={3}>
+
+                    <Col className="Sidebar"xs={1}  md={2}>
                       <Sidebar style={{ 'border': '5px solid'}}/>
                     </Col>
-                    <img md={2} src={image} alt={image.title} style={{ 'align-self': 'center', 'border': '2px solid','height': '150px', 'width': '150px'  }}/>
+                    <Col className='pictureName' xs={5}  md={1} style={{ 'textAlign': 'center', 'min-width': '600px', 'height': '30px'}}>
+                      <h1 style={{'align-self': 'flex-start', 'border': '2px solid' , 'marginBottom':'10px'}}>Picture Name{title}</h1>                    
                     <Row>
-                    <Col className="affiliateLink" xs={12} md={8} style={{ 'paddingTop': '20px'}}>
-                       <Link to={link} style={{ 'align-self':'f', 'border': '2px solid' }}> link</Link>
+                      <img md={2} src={image} alt={image.title} style={{ 'flex-direction': 'column', 'border': '2px solid','height': '130px', 'width': '150px', 'marginTop': '65px', 'marginLeft': '10px' }}/>
+                   
+                      <Col className="affiliateLink" xs={13} md={8} style={{ 'marginLeft': '20px', 'paddingLeft': '20px', 'flex-direction': 'row', 'align-self':'flex-end','border': '1px solid'}}>
+                       
+                       <Link to={link}> lin</Link>
+                       <br/>
+                       </Col>
+                       <Col>
+                      
+               
+                    
+                  
+                  
+
+                        
+
                     </Col>
+                  
+                    
+                    
                     </Row>
+                  
+                    </Col>
+                    
+                   
+                  
+                    
+                  
+                  
                     </Row>
-                    <Col md={7}>       
-                     <Button outline color="primary" className="float-right" onClick={()=>this.handleClick.bind(this)}>Submit</Button>
+                    <Col md={7}> 
+                    <Button outline color="primary" style={{'flex-direction': 'fle', 'align-self:': 'start'}} className="floatRight" onClick={()=>this.handleClick.bind(this)}>Submit</Button>
+
+                  
+
+
+                        
+                    
                    </Col>              
                   </div>
               </Grid>

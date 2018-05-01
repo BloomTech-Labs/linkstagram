@@ -7,7 +7,7 @@ class Sidebar extends Component {
     render(){
       return(
         <div >
-            <StickyBox style={{ 'paddingTop': '10px', 'display': 'flex', 'alignItems': 'flex-wrap' , 'height': '330px', 'width': '140px','border': '2px solid'}}>
+            <StickyBox style={{ 'paddingTop': '10px', 'display': 'flex', 'alignItems': 'flex-wrap' , 'height': '550px', 'width': '140px','border': '2px solid'}}>
                 <ul>
                     <li><a href="#Pictures">Pictures</a></li>
                     <li><a href="#Billing">Billing</a></li>
