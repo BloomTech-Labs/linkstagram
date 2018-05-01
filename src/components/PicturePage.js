@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import { Button } from 'react-strap';
-import 'bootstrap/dist/css/bootstrapmin.css';
-// import Sidebar from './SideBar';
+import { Button } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.css';
+import Sidebar from './Sidebar';
 class PicturePage extends Component {
     constructor(props) {
       super(props);
@@ -18,45 +18,67 @@ class PicturePage extends Component {
     handleClick() {
       //update input fields
       this.setState({
-        image : image,
-        link : link,
-        title : title
+        image : this.image,
+        link : this.link,
+        title : this.title
       });
     }
     render(){
       const { image, link, title } = this.state;
       return (
               <Grid fluid className="grid-figure">
-              <nav class="navbar-text navbar-left">
+              <nav class="navbar-text navbar-left" style={{'width': '620px'}}>
               <ol class="breadcrumb">
-                <li><a href="#Home">Home</a></li>
+                <li><a href="#Home">Home </a></li> 
                 <li href="active">Picture Name</li>
+              
               </ol>
-              <p class="navbar-text navbar-right">
-              <a href="#SignOut" class="navbar-link">SignOut</a>
-              </p>
-              </nav>
-               <Row>
-                  <Col className='pictureName' xs={4} md={8} mdOffset={5} style={{ 'textAlign': 'center', 'width': '1145px'}}>
-                      <h1>{title}</h1>
+              <p className="navbar-text nav-right">
+              <a href="#SignOut" className="navbar-link">SignOut</a>
+
+            </p>
+
+              
+                </nav>
+              <Row>
+                  <Col className='pictureName' xs={13} md={3}  style={{ 'textAlign': 'center', 'min-width': '550px', 'height': '30px'}}>
+                      <h1 style={{'border': '2px solid' , 'marginBottom':'10px'}}>title{title}</h1>
+                     
                   </Col>
+                
                 </Row>
+                <br/>
+             
+ 
+                     
+
                   <br/>
-                  <div >
+                 
+                  <div style={{'width': '1000px'}}>
                     <Row >
-                      <Col className="Sidebar"xs={12} md={3}>
-                        <SideBar/> 
+                      <Col className="Sidebar"xs={9}  md={3}>
+                      <Sidebar style={{ 'border': '5px solid'}}/>
                       </Col>
-                      <Col className="image" xs={12} md={3} >
-                        <img src={image} alt={image.title} />
+                        <img md={2} src={image} alt={image.title} style={{ 'align-self': 'center', 'border': '2px solid','height': '150px', 'width': '150px'  }}/>
+                        <Row>
+                  <Col className="affiliateLink" xs={12} md={8} style={{ 'paddingTop': '20px'}}>
+                       <Link to={link} style={{ 'align-self':'f', 'border': '2px solid' }}> link</Link>
                       </Col>
-                      <Col className="affiliateLink" md={8} style={{ 'paddingTop': '20px'}}>
-                       <Link to={link}> </Link>
-                      </Col>
-                    </Row> 
-                    <Row className="submit">
-                      <Button outline color="primary" className="float-right" onClick={()=>this.handleClick.bind(this)}>Submit</Button>
-                    </Row>
+                      </Row>
+                      
+
+                      
+                     
+                     
+                      </Row>
+                     
+                    
+                  
+                    <Col md={7}>
+                  
+                     <Button outline color="primary" className="float-right" onClick={()=>this.handleClick.bind(this)}>Submit</Button>
+                   </Col>
+                   
                   </div>
               </Grid>
            )

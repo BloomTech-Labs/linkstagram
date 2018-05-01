@@ -7,14 +7,16 @@ class Sidebar extends Component {
     render(){
       return(
         <div >
-            <StickyBox style={{ 'display': 'flex', 'alignItems': 'flex-start', 'padding': '30px 20px' }}>
+            <StickyBox style={{ 'paddingTop': '10px', 'display': 'flex', 'alignItems': 'flex-wrap' , 'height': '330px', 'width': '140px','border': '2px solid'}}>
                 <ul>
                     <li><a href="#Pictures">Pictures</a></li>
                     <li><a href="#Billing">Billing</a></li>
                     <li><a href="#Settings">Settings</a></li>
                 </ul>
             </StickyBox>
+            <br/>
         </div>
+        
         );
     }
 }
