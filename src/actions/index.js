@@ -12,31 +12,12 @@ export const AUTHENTICATION_ERROR = 'AUTHENTICATION_ERROR';
 
 export const authError = error => {
     return {
-      type: AUTHENTICATION_ERROR,
-      payload: error
+        type: AUTHENTICATION_ERROR,
+        payload: error
     };
 };
 
-export const register = (username, password, confirmPassword, history) => {
-    return dispatch => {
-      if (password !== confirmPassword) {
-        dispatch(authError('Passwords do not match'));
-        return;
-      }
-      axios
-        .post(`${ROOT_URL}/users`, { username, password })
-        .then(() => {
-          dispatch({
-            type: USER_REGISTERED
-          });
-          history.push('/signin');
-        })
-        .catch(() => {
-          dispatch(authError('Failed to register user'));
-        });
-    };
-  };
-  
+
   export const signin = (username, password, history) => {
     return dispatch => {
       axios
