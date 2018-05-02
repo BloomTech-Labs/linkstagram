@@ -1,7 +1,7 @@
 import { userConstants } from '../constants';
 import { userService } from '../services'; // this file should contain all the back end api calls.
 import { alertActions } from './';
-import { history } from '../_helpers';
+import { history } from '../helpers';
 
 export const userActions = {
     login,
