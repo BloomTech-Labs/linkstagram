@@ -19,7 +19,7 @@ class BillingPage extends Component {
             <label for='expiration-date'>Expiration Date</label>
             <input id='expiration-date' type='month' autoComplete='cc-exp' />
 
-            <label for='ccv-number'>CCV</label>
+            <label for='ccv-number'>CCV security code</label>
             <input id='ccv-number' autoComplete='cc-csc' />
           </fieldset>
 
