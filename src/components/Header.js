@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
+import InstagramLogin from './instagramSignIn/InstagramSignIn';
 import {
   Collapse,
   Navbar,
@@ -11,20 +12,25 @@ import {
   } from 'reactstrap';
 
 class Header extends Component {
-    render(){
-      return(
-        <div >
-        <a href='https://api.instagram.com/oauth/authorize/?client_id=b9ff132273934310bebf3aecc6e77643&redirect_uri=https://linkstagram.herokuapp.com/&response_type=token'>Sign In</a>
-        </div>
-        );
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOpen: false,
+    };
+    this.toggle = this.toggle.bind(this);
+  }
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
     
     getLinks() {
       if (this.props.authenticated) {
         /* Signed In */
         return [
           <NavItem key={1}>
-          <NavLink tag={Link} to="/" className="d-block d-md-none d-lg-none d-xl-none" >Home</NavLink>
+            <NavLink tag={Link} to="/" className="d-block d-md-none d-lg-none d-xl-none" >Home</NavLink>
           </NavItem>
         ];
       }
@@ -32,6 +38,9 @@ class Header extends Component {
         /* Signed out.. */
         <NavItem key={1}>
           <NavLink tag={Link} to="/" className="d-block d-md-none d-lg-none d-xl-none" >Home</NavLink>
+        </NavItem>,
+        <NavItem key={2}>
+          <InstagramLogin/>
         </NavItem>
       ];
     }
@@ -46,7 +55,7 @@ class Header extends Component {
                             <Navbar color="faded" light expand="md" style={{zIndex:1100}}>
                                 <a className="navbar-brand" id="nav-logo" href="/" >LINKSTAGRAM</a>
                                 <NavbarToggler onClick={this.toggle} />
-                                <Collapse isOpen={this.state.isOpen} navbar>
+                                  <Collapse isOpen={this.state.isOpen} navbar>
                                     <Nav className="mx-auto" navbar>
                                         {this.getLinks()}
                                     </Nav>
