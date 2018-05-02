@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { userActions } from '../_actions';
+import { userActions } from '../actions';
 
 class SignUpPage extends React.Component {
     constructor(props) {
