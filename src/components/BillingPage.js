@@ -10,7 +10,7 @@ class BillingPage extends Component {
         <Header />
 
         <div>
-        <h2>Billing</h2>
+        <h2>Billing Page</h2>
         <form className='payment-info' autocomplete='on' onSubmit=''>
           <fieldset>
             <label for='credit-card-number'>Credit Card Number</label>
