@@ -56,7 +56,11 @@ class PicturePage extends Component {
                       <input  type="text" name="title" className='titleBar' placeholder="Picture Title" value = {title}/>                    
                     <Row>
                       <input md={2} type="image" name="image" className="image" placeholder="image" value={image} onChange={this.handleChange}  />                  
-                      <Col  xs={13} md={8} >                     
+                      <Col  xs={13} md={8} >     
+
+      {/*NOTE!!!---------->> we will have a problem right here because Link (react-router-dom) is for internal links. 
+      but how do we get this input to update to use <a></a> tags when we use the submit button? <----------NOTE!!!!!*/}
+                      
                        <input className="affiliateLink" name="link" placeholder="link"><Link /></input> 
                        <br/>
                        </Col>               
