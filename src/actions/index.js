@@ -10,10 +10,6 @@ export const USER_UNAUTHENTICATED = 'USER_UNAUTHENTICATED';
 export const USER_AUTHENTICATED = 'USER_AUTHENTICATED';
 export const AUTHENTICATION_ERROR = 'AUTHENTICATION_ERROR';
 
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 export const authError = error => {
     return {
         type: AUTHENTICATION_ERROR,
