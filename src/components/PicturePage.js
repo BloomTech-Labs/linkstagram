@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import Link from './Link';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { Button } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -15,19 +15,28 @@ class PicturePage extends Component {
         link:'',
         title:''
       };
+      this.handleSubmit = this.handleSubmit.bind(this);
+      this.handleChange = this.handleChange.bind(this);
     }
-    handleClick() {
-      //update input fields
-      this.setState({
-        image : this.image,
-        link : this.link,
-        title : this.title
+    
+    handleChange(e) {
+      const target = e.target;
+      const value = target.type === 'image' ? target.image : target.value;
+      const name = target.name;
+
+      this.setState ({
+        [name]: value
       });
     }
+    handleSubmit(e) {
+      //update input fields
+     e.preventdefault()
+    }
     render(){
-      const { image, link, title } = this.state;
+     
       return (
-              <Grid fluid className="grid-figure">
+            
+              <Grid fluid className="picture-page">
                <Row>
                   <ol class="breadcrumb">
                     <li><a href="#Home">Home > </a></li> 
@@ -44,18 +53,18 @@ class PicturePage extends Component {
                       <Sidebar className="sidebar" style={{ 'border': '5px solid'}}/>
                     </Col>
                     <Col className='pictureName' xs={5}  md={1} >
-                      <h1 className='titleBar' >Picture Name{title}</h1>                    
+                      <input  type="text" name="title" className='titleBar' placeholder="Picture Title" value = {title}/>                    
                     <Row>
-                      <img md={2} src={image} alt={image.title} className="image" />                  
+                      <input md={2} type="image" name="image" className="image" placeholder="image" value={image} onChange={this.handleChange}  />                  
                       <Col  xs={13} md={8} >                     
-                       <Link className="affiliateLink" to={link}> lin</Link>
+                       <input className="affiliateLink" name="link" placeholder="link"><Link /></input> 
                        <br/>
                        </Col>               
                     </Row>
                     </Col>
                     </Row>
                     <Col md={7}> 
-                    <Button  outline color="primary" style={{ 'align-self:': 'start'}} className="floatRight" onClick={()=>this.handleClick.bind(this)}>Submit</Button>
+                    <Button  outline color="primary" style={{ 'align-self:': 'start'}} className="floatRight" onClick={()=>this.handleSubmit}>Submit</Button>
                    </Col>              
                   </div>
               </Grid>
