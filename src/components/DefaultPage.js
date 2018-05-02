@@ -21,4 +21,4 @@ class DefaultPage extends Component {
     
     }
   }
-  export default withRouter(DefaultPage);
+export default withRouter(DefaultPage);
