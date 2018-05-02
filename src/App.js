@@ -6,7 +6,7 @@ import PicturePage from './components/PicturePage';
 import VisitorLandingPage from './components/VisitorLandingPage';
 import BillingPage from './components/BillingPage';
 import Notfound from './components/NotFound';
-import RequireAuth from './components/auth/RequireAuth';
+import RequireAuth from './components/Auth/RequireAuth';
 import './index.css';
 class App extends Component {
   render() {

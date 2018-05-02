@@ -10,7 +10,7 @@ class DefaultPage extends Component {
     return (
       <div> 
           <Header/>
-          {this.props.location}
+          
           <h1> LINKSTAGRAM </h1>
           <Link to="/Billing">BUY NOW </Link>
         </div>

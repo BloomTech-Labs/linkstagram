@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link as ReactLink} from 'react-router';
+import {Link as ReactLink} from 'react-router-dom';
 
 
 // Special component for parsing/handling internal or external links

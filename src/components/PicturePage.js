@@ -6,7 +6,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import { Button } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../assets/styles/PicturePage.css';
-import Sidebar from './Sidebar';
+import Sidebar from './SideBar';
 class PicturePage extends Component {
     constructor(props) {
       super(props);
@@ -53,9 +53,9 @@ class PicturePage extends Component {
                         <Sidebar className="sidebar" style={{ 'border': '5px solid'}}/>
                       </Col>
                       <Col className='pictureName' xs={5}  md={1} >
-                        <input  type="text" name="title" className='titleBar' placeholder="Picture Title" value = {title}/>                    
+                        <input  type="text" name="title" className='titleBar' placeholder="Picture Title" value = {this.props.title}/>                    
                           <Row>
-                            <input md={2} type="image" name="image" className="image" placeholder="image" value={image} onChange={this.handleChange}  />                  
+                            <input md={2} type="image" alt="single-image" name="image" className="image" placeholder="image" value={this.props.image} onChange={this.handleChange}  />                  
                               <Col  xs={13} md={8} >     
 
       {/*NOTE!!!---------->> we will have a problem right here because Link (react-router-dom) is for internal links. 

@@ -18,34 +18,34 @@ export const authError = error => {
 };
 
 
-  export const signin = (username, password, history) => {
-    return dispatch => {
-      axios
-        .post(`https://api.instagram.com/oauth/authorize/`, {client_id:CLIENT-ID, redirect_uri:'https://linkstagram.herokuapp.com/', response_type:code })
-        .then(() => {
-          dispatch({
-            type: USER_AUTHENTICATED
-          });
-          history.push('/users');
-        })
-        .catch(() => {
-          dispatch(authError('Incorrect email/password combo'));
-        });
-    };
-  };
+  // export const signin = (username, password, history) => {
+  //   return dispatch => {
+  //     axios
+  //       .post(`https://api.instagram.com/oauth/authorize/`, {client_id:CLIENT-ID, redirect_uri:'https://linkstagram.herokuapp.com/', response_type:code })
+  //       .then(() => {
+  //         dispatch({
+  //           type: USER_AUTHENTICATED
+  //         });
+  //         history.push('/users');
+  //       })
+  //       .catch(() => {
+  //         dispatch(authError('Incorrect email/password combo'));
+  //       });
+  //   };
+  // };
   
-  export const signout = () => {
-    return dispatch => {
-      axios
-        .post(`${ROOT_URL}/logout`)
-        .then(() => {
-          dispatch({
-            type: USER_UNAUTHENTICATED
-          });
-        })
-        .catch(() => {
-          dispatch(authError('Failed to log you out'));
-        });
-    };
-  };
+  // export const signout = () => {
+  //   return dispatch => {
+  //     axios
+  //       .post(`${ROOT_URL}/logout`)
+  //       .then(() => {
+  //         dispatch({
+  //           type: USER_UNAUTHENTICATED
+  //         });
+  //       })
+  //       .catch(() => {
+  //         dispatch(authError('Failed to log you out'));
+  //       });
+  //   };
+  // };
 
