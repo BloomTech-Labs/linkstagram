@@ -1,5 +1,5 @@
-import { userConstants } from '../_constants';
-import { userService } from '../_services';
+import { userConstants } from '../constants';
+import { userService } from '../services'; // this file should contain all the back end api calls.
 import { alertActions } from './';
 import { history } from '../_helpers';
 
@@ -8,7 +8,7 @@ export const userActions = {
     logout,
     register,
     
-    delete: _delete
+    deleteID
 };
 
 function login(username, password) {
@@ -30,12 +30,24 @@ function login(username, password) {
 
     function request(user) { 
         return { 
-                type: userConstants.LOGIN_REQUEST, 
-                payload: user 
+            type: userConstants.LOGIN_REQUEST, 
+            payload: user 
             }; 
         }
-    function success(user) { return { type: userConstants.LOGIN_SUCCESS, user } }
-    function failure(error) { return { type: userConstants.LOGIN_FAILURE, error } }
+
+    function success(user) { 
+        return { 
+            type: userConstants.LOGIN_SUCCESS, 
+            payload: user 
+        }; 
+    }
+
+    function failure(error) { 
+        return { 
+            type: userConstants.LOGIN_FAILURE, 
+            payload: error 
+        }; 
+    }
 }
 
 function logout() {
@@ -65,10 +77,22 @@ function register(user) {
         return { 
             type: REGISTER_REQUEST, 
             payload: user 
-        } 
+        }; 
     }
-    function success(user) { return { type: userConstants.REGISTER_SUCCESS, user } }
-    function failure(error) { return { type: userConstants.REGISTER_FAILURE, error } }
+    
+    function success(user) { 
+        return { 
+            type: userConstants.REGISTER_SUCCESS, 
+            payload: user 
+        };
+     }
+    
+     function failure(error) { 
+         return { 
+             type: userConstants.REGISTER_FAILURE, 
+             payload: error 
+            }; 
+        }
 }
 
 
@@ -78,7 +102,7 @@ function deleteID(id) {
     return dispatch => {
         dispatch(request(id));
 
-        userService.delete(id)
+        userService.deleteID(id)
             .then(
                 user => { 
                     dispatch(success(id));
@@ -89,7 +113,25 @@ function deleteID(id) {
             );
     };
 
-    function request(id) { return { type: userConstants.DELETE_REQUEST, id } }
-    function success(id) { return { type: userConstants.DELETE_SUCCESS, id } }
-    function failure(id, error) { return { type: userConstants.DELETE_FAILURE, id, error } }
+    function request(id) { 
+        return { 
+            type: userConstants.DELETE_REQUEST, 
+            payload: id 
+        }; 
+    }
+
+    function success(id) { 
+        return { 
+            type: userConstants.DELETE_SUCCESS, 
+            payload: id 
+        }; 
+    
+    }
+
+    function failure(id, error) { 
+        return { 
+            type: userConstants.DELETE_FAILURE, 
+            payload: id, error 
+        }; 
+    }
 }

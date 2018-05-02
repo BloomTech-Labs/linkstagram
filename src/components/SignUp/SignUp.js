@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { userActions } from '../_actions';
@@ -99,4 +99,4 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps)(SignUpPage);
+export default withRouter(connect(mapStateToProps)(SignUpPage));
