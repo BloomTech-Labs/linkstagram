@@ -10,7 +10,7 @@ class BillingPage extends Component {
         <Header />
 
         <div>
-        <h2>Billing</h2>
+        <h2>Billing Page</h2>
         <form className='payment-info' autocomplete='on' onSubmit=''>
           <fieldset>
             <label for='credit-card-number'>Credit Card Number</label>
@@ -19,7 +19,7 @@ class BillingPage extends Component {
             <label for='expiration-date'>Expiration Date</label>
             <input id='expiration-date' type='month' autoComplete='cc-exp' />
 
-            <label for='ccv-number'>CCV</label>
+            <label for='ccv-number'>CCV security code</label>
             <input id='ccv-number' autoComplete='cc-csc' />
           </fieldset>
 
