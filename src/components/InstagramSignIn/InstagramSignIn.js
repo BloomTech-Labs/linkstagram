@@ -13,14 +13,11 @@ render() {
   }
   return(
     <InstagramLogin
-      clientId="5fd2f11482844c5eba963747a5f34556"
+      clientId="b9ff132273934310bebf3aecc6e77643"
       buttonText="Sign In"
       onSuccess={responseInstagram}
       onFailure={responseInstagram}
-    >,
-    {/* <FontAwesome
-        name="instagram"
-      /> */}
+    >
       <span> Sign In with Instagram </span>
     </InstagramLogin>
     );
