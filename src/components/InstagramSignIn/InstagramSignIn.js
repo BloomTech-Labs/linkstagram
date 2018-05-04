@@ -6,13 +6,13 @@ import InstagramLogin from 'react-instagram-login';
 
 
 const responseInstagram = (response) => {
-  console.log(response);
+  res
 }
  
 export default () => {
   return(
     <InstagramLogin
-      clientId="5fd2f11482844c5eba963747a5f34556"
+      clientId=""
       buttonText="Sign In"
       onSuccess={responseInstagram}
       onFailure={responseInstagram}

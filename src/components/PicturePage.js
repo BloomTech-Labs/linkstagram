@@ -13,7 +13,8 @@ class PicturePage extends Component {
       this.state = {
         image:'',
         link:'',
-        title:''
+        title:'',
+        submitted: false
       };
       this.handleSubmit = this.handleSubmit.bind(this);
       this.handleChange = this.handleChange.bind(this);
@@ -26,11 +27,14 @@ class PicturePage extends Component {
 
       this.setState ({
         [name]: value
-      });
+      
+      }); 
     }
     handleSubmit(e) {
-      //update input fields
      e.preventdefault()
+     this.setState({
+       submitted: !this.state.submitted
+     });
     }
     render(){
      
@@ -60,8 +64,9 @@ class PicturePage extends Component {
 
       {/*NOTE!!!---------->> we will have a problem right here because Link (react-router-dom) is for internal links. 
       but how do we get this input to update to use <a></a> tags when we use the submit button? <----------NOTE!!!!!*/}
-                      
-                                <input className="affiliateLink" name="link" placeholder="link"><Link /></input> 
+                              {this.state.submitted ? <a href={this.props.link}>{this.props.link}</a> : 
+                                   <input className="affiliateLink" name="link" placeholder="link"></input>
+                              }
                               <br/>
                               </Col>               
                           </Row>
