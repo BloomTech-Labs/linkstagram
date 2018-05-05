@@ -5,21 +5,26 @@ import InstagramLogin from 'react-instagram-login';
 
 class InstaLogin extends Component {
 
-  
- 
-render() {
-  const responseInstagram = (response) => {
-    console.log(response);
+  handleOnSuccess(response){
+    /* need an action to handle the token from Instagram */
+    console.log('Im Success respone', response);
   }
-  return(
-    <InstagramLogin
-      clientId="b9ff132273934310bebf3aecc6e77643"
-      buttonText="Sign In"
-      onSuccess={responseInstagram}
-      onFailure={responseInstagram}
-    >
-      <span> Sign In with Instagram </span>
-    </InstagramLogin>
+  
+  handleOnFailue(response) {
+    /* need to dispatch an error  */
+    console.log('Im Failure Response', response);
+  }
+ 
+  render() {
+    return(
+      <InstagramLogin
+        clientId="b9ff132273934310bebf3aecc6e77643"
+        buttonText="Sign In"
+        onSuccess={this.handleOnSuccess.bind(this)}
+        onFailure={this.handleOnFailue.bind(this)}
+      >
+        <span> Sign In with Instagram </span>
+      </InstagramLogin>
     );
   }
 }
