@@ -32,9 +32,9 @@ render() {
         return <div>loading...</div>;
     }    
     return (
-        <Grid fluid style={{ 'paddingBottom': '1200px' }}>
+        <Grid fluid >
             <Row>
-                <Col xs={12} md={12} style={{ 'textAlign': 'center', 'padding': '10px' }}>
+                <Col  md={12} style={{ 'textAlign': 'center', 'padding': '10px' }}>
                     <h3>[INSTALINKS GALLERY]</h3>
                 </Col>
             </Row>
