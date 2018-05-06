@@ -32,6 +32,7 @@ class PicturePage extends Component {
     }
     handleSubmit(e) {
      e.preventdefault()
+     this.props.shortenLink(link)
      this.setState({
        submitted: !this.state.submitted
      });
@@ -84,11 +85,12 @@ class PicturePage extends Component {
  
 const mapStateToProps = state => {
   return {
-    authenticated: state.auth.authenticated
+    authenticated: state.auth.authenticated,
+    link: state.link
   };
 };
 
-export default withRouter(connect(mapStateToProps)(PicturePage));
+export default withRouter(connect(mapStateToProps, {shortenLink})(PicturePage));
 
 
 

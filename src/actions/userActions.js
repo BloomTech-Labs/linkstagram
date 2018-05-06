@@ -7,7 +7,6 @@ export const userActions = {
     login,
     logout,
     register,
-    
     deleteID
 };
 
