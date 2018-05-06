@@ -15,7 +15,7 @@ class SideBar extends Component {
                 </ul>
             </StickyBox>
         </div>
-        );
+      );
     }
 }
 
