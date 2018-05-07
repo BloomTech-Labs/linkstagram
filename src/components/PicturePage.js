@@ -6,7 +6,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import { Button } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../assets/styles/PicturePage.css';
-import Sidebar from './SideBar';
+import SideBar from './Sidebar';
 class PicturePage extends Component {
     constructor(props) {
       super(props);
@@ -55,7 +55,7 @@ class PicturePage extends Component {
                   <div style={{'width': '1000px'}}>
                     <Row >
                       <Col xs={1}  md={2}>
-                        <Sidebar className="sidebar" style={{ 'border': '5px solid'}}/>
+                        <SideBar className="sidebar" style={{ 'border': '5px solid'}}/>
                       </Col>
                       <Col className='pictureName' xs={5}  md={1} >
                         <input  type="text" name="title" className='titleBar' placeholder="Picture Title" value = {this.props.title}/>                    

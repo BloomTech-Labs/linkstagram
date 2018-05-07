@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
-import InstagramLogin from './instagramSignIn/InstagramSignIn';
+import  InstaLogin from './InstagramSignIn/InstagramSignIn';
 import {
   Collapse,
   Navbar,
@@ -40,7 +40,7 @@ class Header extends Component {
           <NavLink tag={Link} to="/" className="d-block d-md-none d-lg-none d-xl-none" >Home</NavLink>
         </NavItem>,
         <NavItem key={2}>
-          <InstagramLogin/>
+          <InstaLogin />
         </NavItem>
       ];
     }
