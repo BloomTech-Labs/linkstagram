@@ -3,6 +3,7 @@ import AuthReducer from './auth';
 import { reducer as FormReducer } from 'redux-form';
 import UserReducer from './user';
 import AlertsReducer from './alerts';
+import UrlReducer from './UrlService';
 import StripeReducer from './stripe';
 
 const rootReducer = combineReducers({
@@ -10,6 +11,7 @@ const rootReducer = combineReducers({
   auth: AuthReducer,
   form: FormReducer,
   users: UserReducer,
+  links: UrlReducer,
   payment: StripeReducer
 });
 export default rootReducer;
