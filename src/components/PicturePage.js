@@ -6,14 +6,15 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import { Button } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../assets/styles/PicturePage.css';
-import SideBar from './SideBar';
+import SideBar from './Sidebar';
 class PicturePage extends Component {
     constructor(props) {
       super(props);
       this.state = {
         image:'',
         link:'',
-        title:''
+        title:'',
+        submitted: false
       };
       this.handleSubmit = this.handleSubmit.bind(this);
       this.handleChange = this.handleChange.bind(this);
@@ -26,11 +27,15 @@ class PicturePage extends Component {
 
       this.setState ({
         [name]: value
-      });
+      
+      }); 
     }
     handleSubmit(e) {
-      //update input fields
      e.preventdefault()
+     this.props.shortenLink(link)
+     this.setState({
+       submitted: !this.state.submitted
+     });
     }
     render(){
      
@@ -60,8 +65,9 @@ class PicturePage extends Component {
 
       {/*NOTE!!!---------->> we will have a problem right here because Link (react-router-dom) is for internal links. 
       but how do we get this input to update to use <a></a> tags when we use the submit button? <----------NOTE!!!!!*/}
-                      
-                                <input className="affiliateLink" name="link" placeholder="link"><Link /></input> 
+                              {this.state.submitted ? <a href={this.props.link}>{this.props.link}</a> : 
+                                   <input className="affiliateLink" name="link" placeholder="link"></input>
+                              }
                               <br/>
                               </Col>               
                           </Row>
@@ -79,11 +85,12 @@ class PicturePage extends Component {
  
 const mapStateToProps = state => {
   return {
-    authenticated: state.auth.authenticated
+    authenticated: state.auth.authenticated,
+    link: state.link
   };
 };
 
-export default withRouter(connect(mapStateToProps)(PicturePage));
+export default withRouter(connect(mapStateToProps, {shortenLink})(PicturePage));
 
 
 
