@@ -85,12 +85,12 @@ function register(user) {
             type: userConstants.REGISTER_SUCCESS, 
             payload: user 
         };
-     }
+    }
     
-     function failure(error) { 
-         return { 
-             type: userConstants.REGISTER_FAILURE, 
-             payload: error 
+    function failure(error) { 
+        return { 
+            type: userConstants.REGISTER_FAILURE, 
+            payload: error 
             }; 
         }
 }

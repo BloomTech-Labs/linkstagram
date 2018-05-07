@@ -6,7 +6,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import { Button } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../assets/styles/PicturePage.css';
-import SideBar from './SideBar';
+import SideBar from './Sidebar';
 class PicturePage extends Component {
     constructor(props) {
       super(props);

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 // *** TODD***
 // Side Bar BOX
 // Appears on Dashboard
@@ -16,5 +17,6 @@ class SideBar extends Component {
       );
     }
 }
+
 export default SideBar;
 
