@@ -1,3 +1,6 @@
+THESE ARE JUST NOTES SO I DON"T GET LOST WITH THE ORDER OF THINGS
+
+
 //establish the oauth flow
 module.exports =  app => { 
 

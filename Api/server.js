@@ -3,8 +3,14 @@ import session from 'express-session';
 import passport from 'passport';
 import Instagram from 'passport-instagram';
 import axios from 'axios';
+import passport from './Authentication/passport';
+import { instagram } from './Authentication/strategies';
+import index from './routes/index';
+import auth from './routes/auth';
+import users from './routes/users';
+
 const app = express();
-const port = process.env.PORT || 5656;
+const port = process.env.PORT || 3000;
 
 app.use(express.static(__dirname + '/public'));
 
@@ -14,18 +20,22 @@ app.get('/', (req,res) => {
 })
 //initialize passport middleware in express-session
 app.use(session({
-  secret: 'sytr456-65tyrd-12wrt',
+  secret: 'jjasdfioer;lhi-4oidsyasdouUUERJj5763hjh',  //this can be any random string
   resave: true, 
   saveUninitialized: true
 }))
+//authenticate with passport using instagram strategy
+passport(app);
+instagram()
 
-app.use(passport.initialize());
-app.use(passport.session());
-// we we are using user instead of user.id here because we want all the user info that we are grabbing in our instagram strategy
-passport.serializeUser((user, done) => {
-  done(null, user)
-})
-passport.deserializeUser((user, done) => {
-  done(null, user)
-})
+//  routing
+app.use('/', index);
+app.use('/users', users);
+app.use('/auth', auth);
+
+app.get('/logout', (req,res) => {
+  req.logout()
+  res.redirect('/')
+});
+
 app.listen(port, () => console.log(`http://localhost:${port}`))
