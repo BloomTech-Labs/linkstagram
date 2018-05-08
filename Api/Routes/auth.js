@@ -1,12 +1,12 @@
 import express from 'express';
 import passport from 'passport';
-const router = express.Router();
+const authenticationRouter = express.Router();
 
-router
+authenticationRouter
   .get('/instagram', passport.authenticate('instagram'))
   .get('/instagram/callback', passport.authenticate('instagram', {
     successRedirect: '/users',
     failure: '/error'
   })) 
 
-export default router;
+export default authenticationRouter;
