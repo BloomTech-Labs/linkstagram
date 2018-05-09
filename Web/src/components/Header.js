@@ -72,7 +72,7 @@ class Header extends Component {
                     <div className="col">
                         <div className="navbar--top">
                             <Navbar color="faded" light expand="md" style={{zIndex:1100}}>
-                                <a className="navbar-brand" id="nav-logo" href="/" >LINKSTAGRAM</a>
+                                <a className="navbar-brand" id="nav-logo" href="/" >LINKSTASITE</a>
                                 <NavbarToggler onClick={this.toggle} />
                                   <Collapse isOpen={this.state.isOpen} navbar>
                                     <Nav className="mx-auto" navbar>

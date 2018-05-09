@@ -16,12 +16,21 @@ export const REGISTRATION_EXPIRED = 'REGISTRATION_EXPIRED';
 export const FETCH_PICTURE_ERROR = "FETCH_PICTURE_ERROR";
 export const FETCH_PICTURES = "FETCH_PICTURES";
 
-export const fetchPictures = (max_id, min_id, count, access_token) => {
+export const fetchPictures = (access_token, max_id, min_id, count ) => {
     return dispatch => {
+        let optionalParams = [];
+        if(max_id)
+            optionalParams['max_id'] = max_id;
+        
+        if(min_id)
+            optionalParams['min_id'] = min_id;
+    
+        if(count)
+            optionalParams['count'] = count;
+        
         axios
-            .get(`https://api.instagram.com/v1/users/self/media/recent/?access_token=${access_token}`)
+            .get(`https://api.instagram.com/v1/users/self/media/recent?access_token=${access_token}&` + optionalParams.join('&'))
             .then((response) => {
-                console.log(response)
                 dispatch({
                     type: FETCH_PICTURES,
                     payload:response.data
