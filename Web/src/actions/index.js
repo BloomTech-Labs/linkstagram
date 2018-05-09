@@ -13,7 +13,28 @@ export const CHECK_IF_REGISTERED = 'CHECK_IF_REGISTERED';
 export const USER_REGISTERED = 'USER_REGISTERED';
 export const REGISTRATION_ERROR = 'REGISTRATION_ERROR';
 export const REGISTRATION_EXPIRED = 'REGISTRATION_EXPIRED';
+export const FETCH_PICTURE_ERROR = "FETCH_PICTURE_ERROR";
+export const FETCH_PICTURES = "FETCH_PICTURES";
 
+export const fetchPictures = (max_id, min_id, count, access_token) => {
+    return dispatch => {
+        axios
+            .get(`https://api.instagram.com/v1/users/self/media/recent/?access_token=${access_token}`)
+            .then((response) => {
+                console.log(response)
+                dispatch({
+                    type: FETCH_PICTURES,
+                    payload:response.data
+                });
+            })
+            .catch((error) => {
+                dispatch({
+                    type: FETCH_PICTURE_ERROR,
+                    payload:error
+                });
+            });
+    };    
+} 
 export const authError = error => {
     return {
         type: AUTHENTICATION_ERROR,
