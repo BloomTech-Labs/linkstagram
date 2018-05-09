@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
-const { InstagramLinkSchema } = require('./instagramLink.model');
-const Scheme = mongoose.Schema;
-const AssociatedLinksSchema = Scheme({
+const { InstagramLinksSchema } = require('./instagramLink.model');
+const Schema = mongoose.Schema;
+const AssociatedLinksSchema = Schema({
     user_id : { type : Schema.Types.ObjectId, ref : 'LinkstasiteUser'},
-    instagram_links : InstagramLinkSchema,
+    instagram_links : InstagramLinksSchema,
     affiliate_url : { type : String, required : true },
     created : { type : Date, default : Date.now, required : true},
     last_updated : { type : Date, default : Date.now },
