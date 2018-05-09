@@ -38,7 +38,7 @@ class Header extends Component {
         ];
         if(!this.props.registered) _l.push(
           <NavItem key={3}>
-            <NavLink tag={Link} to="/Register" className="" >Register</NavLink>
+            <NavLink tag={Link} to="/Billing" className="" >Billing</NavLink>
           </NavItem>);
         return _l;
       }

@@ -31,6 +31,6 @@ const items = [
   }
 ];
 
-const Carousel = () => <UncontrolledCarousel items={items} />;
+const Carousel = (props) => <UncontrolledCarousel items={items} />;
 
 export default Carousel;
