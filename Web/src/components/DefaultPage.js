@@ -4,14 +4,18 @@ import { withRouter, Link } from 'react-router-dom';
 import {Button} from 'reactstrap';
 import Header from './Header';
 import Carousel from './Carousel';
+import {signUpToggle} from '../actions'
 class DefaultPage extends Component {
+  toggle(){
+    this.props.signUpToggle(this.props.modal)
+  }
   render() {
     return (
       <div>
           <Header/>
           <Carousel/>
           <h1> LINKSTAGRAM </h1>
-          {!this.props.registered ? <Button><Link to="/Billing">BUY NOW </Link></Button> : ''}
+          {!this.props.registered ? <Button onClick={this.toggle.bind(this)}>BUY NOW</Button> : ''}
       </div>
       ); 
     }
@@ -19,8 +23,9 @@ class DefaultPage extends Component {
 
 const mapStateToProps = state => {
   return {
-    auth: state.auth
+    auth: state.auth,
+    modal: state.modal
   };
 };
 
-export default withRouter(connect(mapStateToProps)(DefaultPage));
+export default withRouter(connect(mapStateToProps, {signUpToggle})(DefaultPage));

@@ -8,7 +8,7 @@ export const CHECK_IF_AUTHENTICATED = 'CHECK_IF_AUTHENTICATED';
 export const USER_UNAUTHENTICATED = 'USER_UNAUTHENTICATED';
 export const USER_AUTHENTICATED = 'USER_AUTHENTICATED';
 export const AUTHENTICATION_ERROR = 'AUTHENTICATION_ERROR';
-
+export const SIGN_UP_TOGGLE = 'SIGN_UP_TOGGLE';
 export const CHECK_IF_REGISTERED = 'CHECK_IF_REGISTERED';
 export const USER_REGISTERED = 'USER_REGISTERED';
 export const REGISTRATION_ERROR = 'REGISTRATION_ERROR';
@@ -28,6 +28,16 @@ export const registrationError = error => {
     };
 };
 
+export const signUpToggle = (state) => {
+    return dispatch => {
+        dispatch({
+            type: SIGN_UP_TOGGLE,
+            payload:!state
+        });
+    };
+}
+
+
 export const signin = (code, history) => {
     return dispatch => {
       axios
@@ -44,19 +54,31 @@ export const signin = (code, history) => {
         });
     };
 };
-  
-export const signout = () => {
+
+export const signup = (access_token, email, history) => {
     return dispatch => {
       axios
-        .post(`${API_URL}/logout`)
-        .then(() => {
-          dispatch({
-            type: USER_UNAUTHENTICATED
-          });
+        .post(API_URL + `/users/signup`, {access_token, email})
+        .then((response) => {
+            dispatch({
+                type: USER_REGISTERED,
+                payload:response.data
+            });
+            history.push('/Dashboard');
         })
-        .catch(() => {
-          dispatch(authError('Failed to log you out'));
+        .catch((error) => {
+            dispatch(registrationError(error));
         });
     };
-  };
+};
+
+
+export const signout = () => {
+    return dispatch => {
+          dispatch({
+            type: USER_UNAUTHENTICATED,
+            payload: {}
+          });
+    };
+};
 

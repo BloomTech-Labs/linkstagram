@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
 import  InstaLogin from './InstagramSignIn/InstagramSignIn';
+import SignUpModal from './Modals/SignUpModal';
+import { signUpToggle } from '../actions';
 import {
   Collapse,
   Navbar,
@@ -24,7 +26,9 @@ class Header extends Component {
       isOpen: !this.state.isOpen
     });
   }
-    
+  toggleSignUpModal(){
+    this.props.signUpToggle(this.props.modal);
+  }  
     getLinks() {
       if (this.props.authenticated) {
         /* Signed In */
@@ -36,10 +40,17 @@ class Header extends Component {
             <NavLink tag={Link} to="/Dashboard" className="" >Dashboard</NavLink>
           </NavItem>
         ];
-        if(!this.props.registered) _l.push(
-          <NavItem key={3}>
-            <NavLink tag={Link} to="/Billing" className="" >Billing</NavLink>
-          </NavItem>);
+        if(this.props.registered){
+          _l.push(
+            <NavItem key={3}>
+              <NavLink tag={Link} to="/Billing" className="" >Billing</NavLink>
+            </NavItem>);
+        } else {
+          _l.push(
+            <NavItem key={3}>
+              <a className="nav-link" onClick={this.toggleSignUpModal.bind(this)} style={{cursor:'pointer'}}>Sign-Up</a>
+            </NavItem>);
+        }
         return _l;
       }
       return [
@@ -73,6 +84,7 @@ class Header extends Component {
                     </div>
                 </div>
             </div>
+            <SignUpModal />
         </div>
       );
     }    
@@ -81,8 +93,9 @@ class Header extends Component {
 const mapStateToProps = state => {
   return {
     authenticated: state.auth.authenticated,
-    registered : state.auth.registered
+    registered : state.auth.registered,
+    modal: state.modal
   };
 };
 
-export default withRouter(connect(mapStateToProps)(Header));
+export default withRouter(connect(mapStateToProps, {signUpToggle})(Header));

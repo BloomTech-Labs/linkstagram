@@ -8,10 +8,20 @@ import Pictures from './Pictures';
 class Dashboard extends Component {
     render(){
       return(
-        <div >
-          <Header/>
-          <SideBar/>
-          <Pictures/>
+        <div className="container-fluid">
+            <Header/>
+            <div className="container">
+                <div className="row">
+                    <div className="col-sm-12 col-md-4 col-lg-3">
+                        <SideBar/>
+                    </div>
+                    <div className="col-sm-12 col-md-8 col-lg-9">
+                        <h1>Dashboard</h1>     
+                        <hr/>             
+                        <Pictures/>
+                    </div>
+                </div>
+            </div>
         </div>
         );
     }
