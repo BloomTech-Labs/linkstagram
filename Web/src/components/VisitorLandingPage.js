@@ -7,6 +7,7 @@ class VisitorLandingPage extends Component {
       return(
         <div >
           <Header />
+          {this.props.match.params.user ? <h1>{this.props.match.params.user}</h1> : ''}
         Visitor Landing Page
         </div>
         );
