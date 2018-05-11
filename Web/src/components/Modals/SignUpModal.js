@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, Form, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import {signup,signUpToggle} from '../../actions';
 
 class SignUpModal extends Component { 
@@ -14,13 +14,15 @@ class SignUpModal extends Component {
     render() {
         console.log(this.props.modal)
         return (<Modal isOpen={this.props.modal} toggle={this.toggle.bind(this)} className="">
-          <ModalHeader toggle={this.toggle.bind(this)}>Modal title</ModalHeader>
+          <ModalHeader toggle={this.toggle.bind(this)}>Sign up to Linkstasite!</ModalHeader>
           <ModalBody>
-            The is a Sign Up Modal.
+            <Form>
+              <Label for="email">Email</Label>
+              <Input type="email" id="email" name="email" placeholder="enter your email" />
+            </Form>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.toggle.bind(this)}>Do Something</Button>{' '}
-            <Button color="secondary" onClick={this.toggle.bind(this)}>Cancel</Button>
+            <Button color="primary" onClick={this.toggle.bind(this)}>Sign Up!</Button>{' '}
           </ModalFooter>
         </Modal> );
   }
