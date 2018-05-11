@@ -12,7 +12,6 @@ class BillingPage extends Component {
 
         <div>
         <h2>Billing</h2>
-
         </div>
       </div>
     );
