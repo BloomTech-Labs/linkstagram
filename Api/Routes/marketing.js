@@ -5,7 +5,7 @@ const Users = require('../Classes/Users') ;
 const qs = require('qs');
 const marketingRouter = express.Router();
 marketingRouter
-  .post('/s', (req, res) => {
+  .post('/', (req, res) => {
     const {access_token} = req.body;
     // https://api.instagram.com/v1/users/self/?access_token=ACCESS-TOKEN
     axios.post('https://api.instagram.com/v1/users/self/', qs.stringify({ access_token }))
