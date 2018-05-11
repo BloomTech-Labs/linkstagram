@@ -3,7 +3,7 @@ import {
     USER_UNAUTHENTICATED,
     AUTHENTICATION_ERROR,
     CHECK_IF_AUTHENTICATED,
-  } from '../actions';
+  } from '../actions/constants/auth';
   
   export default (auth = {}, action) => {
     switch (action.type) {
@@ -18,4 +18,4 @@ import {
       default:
         return auth;
     }
-  };
+  }; 

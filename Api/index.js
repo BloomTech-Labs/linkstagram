@@ -5,6 +5,7 @@ const server = express();
 const authenticationRouter = require('./Routes/authentication');
 const usersRouter = require('./Routes/users');
 const paymentsRouter = require('./Routes/payments');
+const marketingRouter =require('./Routes/marketing');
  // const linksRouter = require('Routes/links');
 const PORT = 2000;
 server.use(bodyParse.json());
@@ -17,6 +18,7 @@ server.get('/', (req,res) => {
 server.use('/authentication', authenticationRouter);
 server.use('/users', usersRouter);
 server.use('/payments', paymentsRouter);
+server.use('/marketing',marketingRouter);
 // server.use('/links', linksRouter);
 const App = server.listen(PORT, () => {
     console.log('Linkstasite Api Running...');

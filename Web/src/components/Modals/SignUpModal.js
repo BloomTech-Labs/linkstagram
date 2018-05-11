@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
+
 import { Button, Form, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import {signup,signUpToggle} from '../../actions';
+
 
 class SignUpModal extends Component { 
     constructor(props){
@@ -35,4 +37,4 @@ const mapStateToProps = state => {
     };
 };
   
-export default withRouter(connect(mapStateToProps, {signUpToggle})(SignUpModal));
+export default withRouter(connect(mapStateToProps)(SignUpModal));

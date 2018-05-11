@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
-import { signUpToggle } from '../actions';
+import { signUpToggle }  from '../actions';
 import {
   Nav,
   NavItem,
