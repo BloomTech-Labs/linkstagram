@@ -33,7 +33,7 @@ class DefaultCarousel extends Component {
     }
     
     render() {
-      return(this.getItems.bind(this))
+      return(this.getItems())
     }
 }
 

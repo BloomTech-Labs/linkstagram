@@ -25,7 +25,7 @@ export default (items = [
         case CAROUSEL_ITEMS_DEFAULT:
             return action.payload;
         case CAROUSEL_ITEMS_ERROR:
-            return action.payload;
+            return items;
         case CAROUSEL_ITEMS_REGISTERED:
             return action.payload;
         case CAROUSEL_ITEMS_UNREGISTERED:
