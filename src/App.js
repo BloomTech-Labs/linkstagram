@@ -1,21 +1,29 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { withRouter, BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Landing from './Component/Landing';
+import Dashboard from './Component/Dashboard';
+import PicturePage from './Component/PicturePage';
+import VisitorLandingPage from './Component/VisitorLandingPage';
+import Billing from './Component/Billing';
+import Notfound from './Component/NotFound';
+
+import './index.css';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Router >
+        <Switch>
+          <Route path="/" component={Landing} exact />
+          <Route path="/Dashboard" component={Dashboard} exact />
+          <Route path="/Pictures" component={PicturePage} exact />
+          <Route path="/User" component={VisitorLandingPage} exact />
+          <Route path="/Billing" component={BillingPage} exact />
+          <Route component={Notfound} />
+        </Switch>
+      </Router>
     );
   }
 }
 
-export default App;
+export default withRouter(App);
