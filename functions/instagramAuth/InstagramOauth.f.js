@@ -8,16 +8,20 @@ const admin = require('firebase-admin')
 const functions = require('firebase-functions');
 const cookieParser = require('cookie-parser');
 const crypto = require('crypto');
-
+const express = require('express');
 // Firebase Setup
 
 const serviceAccount = require('./service-account.json');
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: `https://${process.env.GCLOUD_PROJECT}.firebaseio.com`,
+  databaseURL: `https://${serviceAccount.project_id}.firebaseio.com`,
 });
-
-const OAUTH_REDIRECT_URI = `https://${process.env.GCLOUD_PROJECT}.firebaseapp.com/popup.html`;
+const OAUTH_REDIRECT_PATH = '/redirect';
+const OAUTH_CALLBACK_PATH = '/instagram-callback';
+const OAUTH_MOBILE_REDIRECT_PATH = '/instagram-mobile-redirect';
+const OAUTH_MOBILE_CALLBACK_PATH = '/instagram-mobile-callback';
+const OAUTH_CODE_EXCHANGE_PATH = '/instagram-mobile-exchange-code';
+const OAUTH_REDIRECT_URI = `https://${serviceAccount.project_id}.firebaseapp.com/public/popup.html` ;
 const OAUTH_SCOPES = 'basic';
 
 /**

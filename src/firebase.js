@@ -8,8 +8,8 @@ var config = {
     storageBucket: "",
     messagingSenderId: "633569245331"
   };
-  const firebaseApp = firebase.initializeApp(config);
+  const firebase = firebase.initializeApp(config);
   export const ref = firebase.database().ref();
   export const linksRef = firebase.database().ref('links');
   export const firebaseAuth = firebase.auth;
-  export default firebaseApp;
+  export default firebase;

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 'use strict';
-
+  // firebase = require('firebase');
 // Initializes the Demo.
 function Demo() {
   document.addEventListener('DOMContentLoaded', function() {
