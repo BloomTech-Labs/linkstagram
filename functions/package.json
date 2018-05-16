@@ -23,7 +23,7 @@
   "scripts": {
     "lint": "./node_modules/.bin/eslint --max-warnings=0 .",
     "serve": "firebase serve --only functions",
-    "shell": "firebase experimental:functions:shell",
+    "shell": "firebase experimental:functions:shell"
   
   },
   "private": true

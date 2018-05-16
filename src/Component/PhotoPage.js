@@ -1,9 +1,10 @@
-import react, { Component } from 'React';
-// import Image from './imageTag';
-import { base } from './base';
-import StickyBox from "react-sticky-box/dist/react-sticky.esnext.js"
+import React, { Component } from 'react';
+import Imager from '../Helpers/Imager';
+import { base } from '../firebase';
+import StickyBox from 'react-sticky-box';
+import SideBar from './SideBar';
 
-class ImagePage extends Component {
+export default class ImagePage extends Component {
     constructor(props) {
         super(props);
         this.updateLink = this.updateLink.bind(this);
@@ -45,9 +46,10 @@ class ImagePage extends Component {
 render() {
     return(
         <div>
+          <SideBar />
             <input type="text" name="title" placeholder="picture title" value={this.state.title}/>
             <StickyBox width={350}>
-                <Image src={} width={150} height={150} mode={'fit'} />  
+                <Imager src={"../assets/Images/insta2.jpg"} width={150} height={150} mode={'fit'} />  
             </StickyBox>
             <div class="wrapper">
                 <div class="c1">

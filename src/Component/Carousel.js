@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DefaultCarousel from './DefaultCarousel';
-import CarouselLoggedIn from '/CarouselLoggedIn';
+import CarouselLoggedIn from './CarouselLoggedIn';
 
 
 class Carousel extends Component {
