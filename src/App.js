@@ -11,10 +11,7 @@ import './index.css';
 class App extends Component {
   render() {
     return (
-
-      
       <Router >
-      
         <Switch>
           <Route path="/" component={LandingPage} exact />
           <Route path="/dashboard" component={Dashboard} exact />
@@ -22,11 +19,7 @@ class App extends Component {
           <Route path="/user" component={PhotoPage} exact />
           <Route path="/billing" component={BillingPage} exact />
         </Switch>
-       
       </Router>
-     
-
-    
     );
   }
 }
