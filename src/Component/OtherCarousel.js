@@ -1,5 +1,5 @@
 import React from "react";
-import { UncontrolledCarousel } from "reactstrap";
+import { UncontrolledCarousel } from 'reactstrap';
 
 const items = [
   {
@@ -25,6 +25,6 @@ const items = [
   }
 ];
 
-const DefaultCarousel = () => <UncontrolledCarousel items={items} />;
+const OtherCarousel = () => <UncontrolledCarousel items={items} />;
 
-export default DefaultCarousel;
+export default OtherCarousel;

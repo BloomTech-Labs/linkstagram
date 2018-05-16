@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { withRouter, BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Landing from './Component/Landing';
+import LandingPage from './Component/LandingPage';
 import Dashboard from './Component/Dashboard';
-import PicturePage from './Component/PicturePage';
-import VisitorLandingPage from './Component/VisitorLandingPage';
+import PhotoPage from './Component/PhotoPage';
+import PhotoGallery from './Component/PhotoGallery';
 import Billing from './Component/Billing';
-import Notfound from './Component/NotFound';
+// import Notfound from './Component/NotFound';
 
 import './index.css';
 
@@ -14,16 +14,15 @@ class App extends Component {
     return (
       <Router >
         <Switch>
-          <Route path="/" component={Landing} exact />
-          <Route path="/Dashboard" component={Dashboard} exact />
-          <Route path="/Pictures" component={PicturePage} exact />
-          <Route path="/User" component={VisitorLandingPage} exact />
-          <Route path="/Billing" component={BillingPage} exact />
-          <Route component={Notfound} />
+          <Route path="/" component={LandingPage} exact />
+          <Route path="/Dashboard" component={Dashboard} />
+          <Route path="/Pictures" component={PhotoPage}/>
+          <Route path="/User" component={PhotoGallery}/>
+          <Route path="/Billing" component={Billing}/>
         </Switch>
       </Router>
     );
   }
 }
 
-export default withRouter(App);
+export default App;
