@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "linkstasitecs5-18740"
+    "default": "linkstasitecs5-18740",
+    "instagramsignin": "linkstasite"
   }
 }
