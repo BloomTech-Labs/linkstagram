@@ -16,9 +16,9 @@ class App extends Component {
         <Switch>
           <Route path="/" component={Landing} exact />
           <Route path="/Dashboard" component={Dashboard} exact />
-          <Route path="/Pictures" component={PicturePage} exact />
-          <Route path="/User" component={VisitorLandingPage} exact />
-          <Route path="/Billing" component={BillingPage} exact />
+          <Route path="/Pictures" component={PhotoGallery} exact />
+          <Route path="/User" component={PhotoPage} exact />
+          <Route path="/Billing" component={Billing} exact />
           <Route component={Notfound} />
         </Switch>
       </Router>
