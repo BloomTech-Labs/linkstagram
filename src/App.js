@@ -3,10 +3,9 @@ import { withRouter, BrowserRouter as Router, Route, Switch } from 'react-router
 
 import LandingPage from './Component/LandingPage';
 import Dashboard from './Component/Dashboard';
-import PhotoPage from './Component/PhotoPage';
 import PhotoGallery from './Component/PhotoGallery';
-import Billing from './Component/Billing';
-// import Notfound from './Component/NotFound';
+import PhotoPage from './Component/PhotoPage';
+import BillingPage from './Component/Billing';
 
 
 import './index.css';
@@ -14,24 +13,15 @@ import './index.css';
 class App extends Component {
   render() {
     return (
-
-      
       <Router >
-      
         <Switch>
-
           <Route path="/" component={LandingPage} exact />
-          <Route path="/Dashboard" component={Dashboard} />
-          <Route path="/Pictures" component={PhotoPage}/>
-          <Route path="/User" component={PhotoGallery}/>
-          <Route path="/Billing" component={Billing}/>
-
+          <Route path="/dashboard" component={Dashboard} exact />
+          <Route path="/gallery" component={PhotoGallery} exact />
+          <Route path="/user" component={PhotoPage} exact />
+          <Route path="/billing" component={BillingPage} exact />
         </Switch>
-       
       </Router>
-     
-
-    
     );
   }
 }
