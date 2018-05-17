@@ -16,24 +16,16 @@ admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: `https://${serviceAccount.project_id}.firebaseio.com`,
 });
-const OAUTH_REDIRECT_PATH = '/redirect';
-const OAUTH_CALLBACK_PATH = '/instagram-callback';
-const OAUTH_MOBILE_REDIRECT_PATH = '/instagram-mobile-redirect';
-const OAUTH_MOBILE_CALLBACK_PATH = '/instagram-mobile-callback';
-const OAUTH_CODE_EXCHANGE_PATH = '/instagram-mobile-exchange-code';
-const OAUTH_REDIRECT_URI = `https://${serviceAccount.project_id}.firebaseapp.com/public/popup.html` ;
-const OAUTH_SCOPES = 'basic';
 
-/**
- * Creates a configured simple-oauth2 client for Instagram.
+ /* Creates a configured simple-oauth2 client for Instagram.
  */
 function instagramOAuth2Client() {
   // Instagram OAuth 2 setup
   // TODO: Configure the `instagram.client_id` and `instagram.client_secret` Google Cloud environment variables.
   const credentials = {
     client: {
-      id: functions.config().instagram.client_id,
-      secret: functions.config().instagram.client_secret,
+      id: firebase.config().instagram.clientId,
+      secret: firebase.config().instagram.clientSecret,
     },
     auth: {
       tokenHost: 'https://api.instagram.com',
@@ -42,6 +34,18 @@ function instagramOAuth2Client() {
   };
   return require('simple-oauth2').create(credentials);
 }
+const OAUTH_REDIRECT_PATH = '/redirect';
+const OAUTH_CALLBACK_PATH = '/instagram-callback';
+const OAUTH_MOBILE_REDIRECT_PATH = '/instagram-mobile-redirect';
+const OAUTH_MOBILE_CALLBACK_PATH = '/instagram-mobile-callback';
+const OAUTH_CODE_EXCHANGE_PATH = '/instagram-mobile-exchange-code';
+const OAUTH_REDIRECT_URI = `https://${serviceAccount.project_id}.firebaseapp.com/public/popup.html` ;
+const OAUTH_SCOPES = 'basic';
+const app = express();
+app.enable('trust proxy');
+app.use(express.static('public'));
+app.use(cookieParser());
+/**
 
 /**
  * Redirects the User to the Instagram authentication consent screen. Also the 'state' cookie is set for later state
@@ -154,3 +158,7 @@ function createFirebaseAccount(instagramID, displayName, photoURL, accessToken) 
     return token;
   });
 }
+// var server = app.listen(process.env.PORT || '8080', () => {
+//   console.log('App listening on port %s', server.address().port);
+//   console.log('Press Ctrl+C to quit.');
+// });
