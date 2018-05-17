@@ -18,16 +18,10 @@ class App extends Component {
       
       <Router >
       
-        <Switch>
+       <div>
+          <Route path="/" component={LandingPage}  />
+         </div>
         
-          <Route path="/" component={LandingPage}  exact/>
-          <Route path="/Dashboard" component={Dashboard}  />
-          <Route path="/Pictures" component={PhotoPage}  />
-          <Route path="/User" component={LandingPage}  />
-
-      
-          <Route path="/Billing" component={Billing}  />    
-        </Switch>
        
       </Router>
      
@@ -37,4 +31,4 @@ class App extends Component {
   }
 }
 
-export default withRouter(App);
+export default App;

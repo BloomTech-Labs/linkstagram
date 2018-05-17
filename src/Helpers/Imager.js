@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 /*thanks to http://blog.matthewcheok.com/a-better-img-tag/ for this snippet*/
 
 /* this allows us to use an image element with predefined size and mode*/
-/* <Image width={} height={} mode="fit" /> */
+/* <Image src={} width={} height={} mode="fit" /> */
 export default class Imager extends Component {  
   render() {
     let {mode, src, height, width, style, padding, ...props} = this.props;

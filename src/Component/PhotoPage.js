@@ -4,7 +4,7 @@ import { base } from '../firebase';
 import StickyBox from 'react-sticky-box';
 import SideBar from './SideBar';
 
-export default class ImagePage extends Component {
+export default class PhotoPage extends Component {
     constructor(props) {
         super(props);
         this.updateLink = this.updateLink.bind(this);
