@@ -9,7 +9,8 @@ class LandingPage extends Component {
   render() {
     return (
       <div>
-        <Header />
+        <Button><Link to="/SignUp"> SignUp </Link> </Button>
+        <Button><Link to="/Login"> Login </Link> </Button>
         <Carousel />
         <Button>
           <Link to="/Billing">BUY NOW </Link>
