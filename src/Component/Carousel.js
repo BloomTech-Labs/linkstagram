@@ -1,6 +1,8 @@
+
 import React, { Component } from "react";
 import OtherCarousel from "./OtherCarousel";
 //import CarouselLoggedIn from "./CarouselLoggedIn";
+
 
 
 class Carousel extends Component {

@@ -8,7 +8,13 @@ var config = {
     storageBucket: "",
     messagingSenderId: "633569245331"
   };
-  const app = firebase.initializeApp(config);
+  export const app = firebase.initializeApp(config);
   const base = Rebase.createClass(app.database());
   export const firebaseAuth = firebase.auth;
   export { base };
+
+  export const storageKey = 'KEY_FOR_LOCAL_STORAGE';
+
+  export const isAuthenticated = () => {
+    return !!firebaseAuth.currentUser || !!localStorage.getItem(storageKey);
+  };
