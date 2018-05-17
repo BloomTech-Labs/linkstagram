@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { withRouter, BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-// import Landing from './Component/Landing';
-import Dashboard from './Component/Dashboard';
-import PhotoPage from './Component/PhotoPage';
 import LandingPage from './Component/LandingPage';
-import Billing from './Component/Billing';
-// import Notfound from './Component/NotFound';
+import Dashboard from './Component/Dashboard';
+import PhotoGallery from './Component/PhotoGallery';
+import PhotoPage from './Component/PhotoPage';
+import BillingPage from './Component/Billing';
 
 
 import './index.css';
@@ -14,19 +13,17 @@ import './index.css';
 class App extends Component {
   render() {
     return (
-
-      
       <Router >
-      
-       <div>
-          <Route path="/" component={LandingPage}  />
-         </div>
-        
-       
-      </Router>
-     
 
-    
+        <Switch>
+          <Route path="/" component={LandingPage} exact />
+          <Route path="/dashboard" component={Dashboard} exact />
+          <Route path="/gallery" component={PhotoPage} exact />
+          <Route path="/user" component={PhotoGallery} exact />
+          <Route path="/billing" component={BillingPage} exact />
+        </Switch>
+
+      </Router>
     );
   }
 }

@@ -1,16 +1,21 @@
-import React, { Component } from 'react';
-import Carousel from './Carousel';
-import {Button, Link } from 'react'
+
+import React, { Component } from "react";
+import { Button } from "reactstrap";
+import { Link } from "react-router-dom"
+import Carousel from "./Carousel";
+import Header from "./Header";
 
 class LandingPage extends Component {
-    render() {
-        return (
-
-            // signup/Signin Header
-            <Carousel/>
-            //BUY NOW BUtton 
-           // <Button>BUY NOW <Link to="/Billing"/> </Button>
-        )
-    }
+  render() {
+    return (
+      <div>
+        <Header />
+        <Carousel />
+        <Button>
+          <Link to="/Billing">BUY NOW </Link>
+        </Button>
+      </div>
+    );
+  }
 }
 export default LandingPage;
