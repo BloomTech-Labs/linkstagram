@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { Navbar, Button } from 'react-bootstrap';
 import './App.css';
-
+import isAuthenticated from './firebase';
 class App extends Component {
   goTo(route) {
     this.props.history.replace(`/${route}`)
@@ -24,7 +24,7 @@ class App extends Component {
         <Navbar fluid>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="#">Auth0 - React</a>
+              <a href="https://linkstasite.auth0.com">Auth0 - React</a>
             </Navbar.Brand>
             <Button
               bsStyle="primary"
