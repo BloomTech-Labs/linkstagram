@@ -44,16 +44,42 @@ Demo.prototype.onAuthStateChanged = function(user) {
     this.profilePic.src = user.photoURL;
     this.signedOutCard.style.display = 'none';
     this.signedInCard.style.display = 'block';
+    this.instagramTokenRef = firebase.database().ref('/instagramAccessToken/' + user.uid);
+    this.showInstagramPics();
   } else {
+    this.lastUid = null;
+    // this.picsContainer.innerHTML = '';
     this.signedOutCard.style.display = 'block';
     this.signedInCard.style.display = 'none';
   }
+};
+Demo.prototype.showInstagramPics = function() {
+  // The Instagram Access Token is saved in the Realtime Database. We fetch it first.
+  this.instagramTokenRef.once('value').then(function(snapshot) {
+    var accessToken = snapshot.val();
+    var feed = new Instafeed({
+      get: 'user',
+      userId: 'self',
+      target: this.picsContainer,
+      accessToken: accessToken,
+      limit: 20,
+      resolution: 'low_resolution',
+      error: function(e) {
+        // If the Instagram auth token has been revoked we sign out the user.
+        if (e === 'The access_token provided is invalid.') {
+          firebase.auth().signOut();
+        }
+      },
+      template: '<Link to="/ImageSettings"><img src="{{image}}"/></Link>'
+    });
+    feed.run();
+  }.bind(this));
 };
 
 // Initiates the sign-in flow using LinkedIn sign in in a popup.
 Demo.prototype.signIn = function() {
   // Open the popup that will start the auth flow.
-  window.open('popup.html', 'name', 'height=585,width=400');
+  window.open('popup.html', 'firebaseAuth', 'height=585,width=400');
 };
 
 // Signs-out of Firebase.

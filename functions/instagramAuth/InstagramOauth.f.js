@@ -10,7 +10,7 @@ const cookieParser = require('cookie-parser');
 const crypto = require('crypto');
 const express = require('express');
 // Firebase Setup
-
+const config = require('./config.json');
 const serviceAccount = require('./service-account.json');
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
@@ -39,7 +39,7 @@ const OAUTH_CALLBACK_PATH = '/instagram-callback';
 const OAUTH_MOBILE_REDIRECT_PATH = '/instagram-mobile-redirect';
 const OAUTH_MOBILE_CALLBACK_PATH = '/instagram-mobile-callback';
 const OAUTH_CODE_EXCHANGE_PATH = '/instagram-mobile-exchange-code';
-const OAUTH_REDIRECT_URI = `https://${serviceAccount.project_id}.firebaseapp.com/public/popup.html` ;
+const OAUTH_REDIRECT_URI = `https://${serviceAccount.project_id}.firebaseapp.com/popup.html` || 'https://localhost:3000/popup.html';
 const OAUTH_SCOPES = 'basic';
 const app = express();
 app.enable('trust proxy');

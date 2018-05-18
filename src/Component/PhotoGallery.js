@@ -4,6 +4,8 @@ import {GridList, GridTile} from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';  /**************<<=========Need this to be a trashcan icon************ */
 
+
+/*styling for the gallery with links*/
 const styles = {
   root: {
     display: 'flex',
@@ -16,7 +18,7 @@ const styles = {
     overflowY: 'auto',
   },
 };
-
+/*each object contains  img, title and link and should be in an array like below */
 const tilesData = [
   {
     img: '',

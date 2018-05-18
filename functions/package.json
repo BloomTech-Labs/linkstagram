@@ -2,6 +2,7 @@
   "name": "firebase-cloud-functions",
   "description": "Firebase Cloud Functions",
   "dependencies": {
+    "@google-cloud/logging": "^1.2.0",
     "bitly": "^5.0.12",
     "camelcase": "^5.0.0",
     "cookie-parser": "^1.4.3",
@@ -12,7 +13,8 @@
     "react-rebase": "^1.0.5",
     "request": "^2.74.0",
     "request-promise-native": "^1.0.3",
-    "simple-oauth2": "^1.0.0"
+    "simple-oauth2": "^1.0.0",
+    "stripe": "^6.0.0"
   },
   "devDependencies": {
     "eslint": "^4.13.1",
