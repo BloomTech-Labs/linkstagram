@@ -1,5 +1,5 @@
 import * as firebase from 'firebase';
-
+import Rebase from 're-base';
 var config = {
     apiKey: "AIzaSyDsQ1r5hgfllHJFlZVjBwI2Bp8btznK5Os",
     authDomain: "linkstasitecs5-18740.firebaseapp.com",
@@ -8,8 +8,13 @@ var config = {
     storageBucket: "",
     messagingSenderId: "633569245331"
   };
-  const firebase = firebase.initializeApp(config);
-  export const ref = firebase.database().ref();
-  export const linksRef = firebase.database().ref('links');
+  export const app = firebase.initializeApp(config);
+  const base = Rebase.createClass(app.database());
   export const firebaseAuth = firebase.auth;
-  export default firebase;
+  export { base };
+
+  export const storageKey = 'KEY_FOR_LOCAL_STORAGE';
+
+  export const isAuthenticated = () => {
+    return !!firebaseAuth.currentUser || !!localStorage.getItem(storageKey);
+  };
