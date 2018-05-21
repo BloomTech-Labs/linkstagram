@@ -28,9 +28,10 @@ const App = () =>
       <Route exact path={routes.SIGN_IN} component={() => <SignInPage />} />
       <Route exact path={routes.PASSWORD_FORGET} component={() => <PasswordForgetPage />} />
       <Route exact path={routes.HOME} component={() => <HomePage />} />
+      <Route exact path={routes.USER} component={() => <User />} />
       <Route exact path={routes.ACCOUNT} component={() => <AccountPage />} />
-      <Route exact path={routes.GALLERY} component={() => <PhotoPage/>}  />
-      <Route exact path={routes.USER} component={() => <PhotoGallery />}  />
+      <Route exact path={routes.PHOTOPAGE} component={() => <PhotoPage/>}  />
+      <Route exact path={routes.PHOTOGALLERY} component={() => <PhotoGallery />}  />
       <Route exact path={routes.BILLING} component={() => <BillingPage/>} />
       <hr/>
 
