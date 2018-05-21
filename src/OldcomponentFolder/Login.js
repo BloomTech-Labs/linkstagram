@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-
+const { firebaseAuth } = require("../firebase");
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -21,9 +21,20 @@ class Login extends Component {
     });
   };
 
-  handleSubmit = event => {
+  handleSubmit = async event => {
     event.preventDefault();
-  };
+   
+      const { email, password } = event.target.elements;
+      try {
+        const user = await firebaseAuth
+          // .auth()
+          .signInWithEmailAndPassword(email.value, password.value);
+        this.props.history.push("/");
+      } catch (error) {
+        //alert(error);
+      }
+    }
+  
 
   render() {
     return (
